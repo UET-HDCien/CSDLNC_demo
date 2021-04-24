@@ -1,0 +1,1609 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "val df= spark.read.json(\"/Users/kienhd1/datasets/AlertDataset/dataset.idea\")\ndf.count",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.zeppelin.interpreter.InterpreterException: java.lang.NoClassDefFoundError: Could not initialize class org.apache.spark.util.Utils$\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.open(LazyOpenInterpreter.java:76)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:836)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:744)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:172)\n\tat org.apache.zeppelin.scheduler.AbstractScheduler.runJob(AbstractScheduler.java:132)\n\tat org.apache.zeppelin.scheduler.FIFOScheduler.lambda$runJobInScheduler$0(FIFOScheduler.java:42)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: java.lang.NoClassDefFoundError: Could not initialize class org.apache.spark.util.Utils$\n\tat org.apache.spark.SparkConf.loadFromSystemProperties(SparkConf.scala:76)\n\tat org.apache.spark.SparkConf.<init>(SparkConf.scala:71)\n\tat org.apache.spark.SparkConf.<init>(SparkConf.scala:58)\n\tat org.apache.zeppelin.spark.SparkInterpreter.open(SparkInterpreter.java:80)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.open(LazyOpenInterpreter.java:70)\n\t... 8 more\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972592_1762374710",
+      "id": "paragraph_1617262092955_1802745545",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:5311"
+    },
+    {
+      "text": "df.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 836,
+              "optionOpen": false
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- ByteCount: long (nullable = true)\n |-- Category: array (nullable = true)\n |    |-- element: string (containsNull = true)\n |-- CeaseTime: string (nullable = true)\n |-- ConnCount: long (nullable = true)\n |-- CreateTime: string (nullable = true)\n |-- DetectTime: string (nullable = true)\n |-- EventTime: string (nullable = true)\n |-- FlowCount: long (nullable = true)\n |-- Format: string (nullable = true)\n |-- ID: string (nullable = true)\n |-- Node: array (nullable = true)\n |    |-- element: struct (containsNull = true)\n |    |    |-- AggrWin: string (nullable = true)\n |    |    |-- Name: string (nullable = true)\n |    |    |-- SW: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- Tags: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- Type: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |-- PacketCount: long (nullable = true)\n |-- Source: array (nullable = true)\n |    |-- element: struct (containsNull = true)\n |    |    |-- Count: long (nullable = true)\n |    |    |-- Hostname: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- IP4: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- IP6: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- InByteCount: long (nullable = true)\n |    |    |-- InFlowCount: long (nullable = true)\n |    |    |-- InPacketCount: long (nullable = true)\n |    |    |-- InPacketsCount: long (nullable = true)\n |    |    |-- Interface: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- InterfaceCount: long (nullable = true)\n |    |    |-- Note: string (nullable = true)\n |    |    |-- OutByteCount: long (nullable = true)\n |    |    |-- OutFlowCount: long (nullable = true)\n |    |    |-- OutPacketCount: long (nullable = true)\n |    |    |-- OutPacketsCount: long (nullable = true)\n |    |    |-- Port: array (nullable = true)\n |    |    |    |-- element: long (containsNull = true)\n |    |    |-- PortCount: long (nullable = true)\n |    |    |-- Proto: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- ProtoCount: long (nullable = true)\n |    |    |-- Type: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- URL: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |-- Target: array (nullable = true)\n |    |-- element: struct (containsNull = true)\n |    |    |-- Anonymised: boolean (nullable = true)\n |    |    |-- Count: long (nullable = true)\n |    |    |-- IP4: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- IP4Count: long (nullable = true)\n |    |    |-- IP6: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- InByteCount: long (nullable = true)\n |    |    |-- InFlowCount: long (nullable = true)\n |    |    |-- InPacketCount: long (nullable = true)\n |    |    |-- Interface: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- InterfaceCount: long (nullable = true)\n |    |    |-- Note: string (nullable = true)\n |    |    |-- OutFlowCount: long (nullable = true)\n |    |    |-- OutPacketCount: long (nullable = true)\n |    |    |-- Port: array (nullable = true)\n |    |    |    |-- element: long (containsNull = true)\n |    |    |-- PortCount: long (nullable = true)\n |    |    |-- Proto: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |    |    |-- ProtoCount: long (nullable = true)\n |    |    |-- Type: array (nullable = true)\n |    |    |    |-- element: string (containsNull = true)\n |-- WinEndTime: string (nullable = true)\n |-- WinStartTime: string (nullable = true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972592_1786631530",
+      "id": "paragraph_1617262200135_586011546",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5312"
+    },
+    {
+      "text": "val df2 = df.filter($\"Target\"(0).getItem(\"IP4\")(0).isNotNull && $\"Source\"(0).getItem(\"IP4\")(0).isNotNull && $\"EventTime\".isNotNull && $\"ID\".isNotNull).select($\"Source\"(0).getItem(\"IP4\")(0).as(\"SrcIPv4\"),\n    $\"Source\"(0).getItem(\"Port\")(0).as(\"SrcPort\"),\n    $\"Target\"(0).getItem(\"IP4\")(0).as(\"DstIPv4\"),\n    $\"Target\"(0).getItem(\"Port\")(0).as(\"DstPort\"),\n    $\"EventTime\",$\"ID\",$\"Category\"(0).as(\"Category\"))\ndf2.show(50,false)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------------+-------+---------------+-------+-------------------------+------------------------------------+--------------+\n|SrcIPv4        |SrcPort|DstIPv4        |DstPort|EventTime                |ID                                  |Category      |\n+---------------+-------+---------------+-------+-------------------------+------------------------------------+--------------+\n|128.121.126.203|null   |142.252.62.31  |null   |2019-03-10T23:59:02+02:00|e0d1cca8-499c-4923-a2ca-7bd587843f74|Recon.Scanning|\n|185.192.59.243 |null   |142.252.187.125|5900   |2019-03-10T23:58:55+02:00|d9dfb2ae-1f10-410e-9d0e-a05c05cf7a44|Recon.Scanning|\n|124.55.119.175 |null   |142.252.10.207 |11     |2019-03-10T23:58:55+02:00|ea7a0a8c-f126-4a7d-a5b6-7ccbb2db46e7|Recon.Scanning|\n|42.179.175.35  |null   |142.252.92.193 |23     |2019-03-11T00:01:01+02:00|c483fe62-4912-455e-94a5-95b31b8a5700|Attempt.Login |\n|185.129.192.44 |null   |142.252.7.135  |992    |2019-03-10T23:58:55+02:00|3931d2db-6b83-48b1-91ef-65620be425c6|Recon.Scanning|\n|1.33.226.5     |null   |142.252.1.15   |23     |2019-03-10T23:57:54+02:00|756079e1-a7a9-4ff4-b555-d62e9289fd06|Recon.Scanning|\n|185.183.222.139|null   |142.252.182.69 |23     |2019-03-10T23:58:54+02:00|c95172c0-0267-46c0-9ffa-f448fb4a3442|Recon.Scanning|\n|185.192.59.136 |null   |142.252.206.243|22     |2019-03-10T23:58:55+02:00|be1b7c51-67f7-4e56-b554-2070e15ff3c8|Recon.Scanning|\n|185.183.222.4  |null   |142.252.157.89 |22     |2019-03-10T23:58:54+02:00|cf77d04b-c553-41ce-8889-7ce13894f3ef|Recon.Scanning|\n|226.153.85.129 |null   |142.252.79.200 |21     |2019-03-10T23:58:55+02:00|d1fd93f4-f1bf-4139-8b18-45f4d0cba23f|Recon.Scanning|\n|49.135.226.161 |null   |142.252.95.239 |443    |2019-03-10T23:58:55+02:00|2da4ca0e-b02f-475b-9a1e-20060b77d9f7|Recon.Scanning|\n|39.212.176.105 |null   |142.252.13.212 |80     |2019-03-10T23:58:55+02:00|de2dbe16-880d-4127-a938-025f9fb58764|Recon.Scanning|\n|156.31.85.225  |null   |142.252.92.126 |23     |2019-03-11T00:00:13+02:00|9fd271ce-efff-4912-a686-dff435fe7c4b|Attempt.Login |\n|172.127.251.68 |null   |142.252.54.140 |3389   |2019-03-10T23:58:53+02:00|983a080a-d3e0-433e-8961-7a495d898417|Attempt.Login |\n|224.90.249.168 |null   |142.252.177.127|81     |2019-03-10T23:58:55+02:00|e161d36d-360f-4053-ad48-0c5f056fd95d|Recon.Scanning|\n|179.182.202.148|null   |142.252.69.77  |22     |2019-03-11T00:00:59+02:00|421a40df-1932-4d05-93e2-67626561568b|Recon.Scanning|\n|67.218.192.13  |null   |142.252.114.155|445    |2019-03-10T23:58:55+02:00|424cd43c-52f8-4fa6-a493-a69961253644|Recon.Scanning|\n|124.55.119.174 |null   |142.252.166.206|null   |2019-03-11T00:04:03+02:00|6ebd68b7-6eef-435c-9f25-66843e59d73d|Recon.Scanning|\n|128.121.126.203|null   |142.252.62.31  |null   |2019-03-11T00:03:57+02:00|c58e0b82-72d8-4995-b650-255cb702d093|Recon.Scanning|\n|185.129.192.44 |null   |142.252.222.193|992    |2019-03-11T00:03:55+02:00|dedcef50-c227-4dac-aede-f1c3222b5d6f|Recon.Scanning|\n|226.153.85.129 |null   |142.252.234.249|21     |2019-03-11T00:03:55+02:00|33c1e2d8-7dfb-4c19-904d-f49c2047d2d9|Recon.Scanning|\n|124.55.119.175 |null   |142.252.11.44  |11     |2019-03-11T00:03:55+02:00|1e725dcd-6b9f-45de-9d39-25deab635301|Recon.Scanning|\n|1.33.226.5     |null   |142.252.81.52  |23     |2019-03-11T00:02:33+02:00|2ad0422f-4af9-4475-93fe-42bafed51e91|Recon.Scanning|\n|185.192.59.136 |null   |142.252.135.136|22     |2019-03-11T00:03:55+02:00|d48e43b6-2961-4da0-8435-1afb30701e27|Recon.Scanning|\n|179.182.202.148|null   |142.252.143.49 |22     |2019-03-11T00:03:54+02:00|1c5d772b-1c7a-4bf9-86b2-5962348bdee5|Recon.Scanning|\n|67.218.192.13  |null   |142.252.150.199|445    |2019-03-11T00:03:55+02:00|50e68a5d-eb62-4d9b-a14b-d487dad79428|Recon.Scanning|\n|67.205.217.7   |null   |142.252.134.21 |22     |2019-03-11T00:03:55+02:00|9d917853-5ae4-4574-beb7-f9efa88214bf|Recon.Scanning|\n|185.183.222.139|null   |142.252.27.255 |23     |2019-03-11T00:03:54+02:00|18530f29-bbff-4e67-a905-22c5d546f63b|Recon.Scanning|\n|185.183.222.4  |null   |142.252.105.73 |22     |2019-03-11T00:03:55+02:00|ec22a2c3-0132-4ad2-8c19-cce8656a59dc|Recon.Scanning|\n|49.135.226.161 |null   |142.252.253.250|443    |2019-03-11T00:03:55+02:00|1cafc4d5-ed6d-438e-8c86-0e9d7dbb964d|Recon.Scanning|\n|185.192.59.243 |null   |142.252.91.12  |5900   |2019-03-11T00:03:55+02:00|dbfd0281-34a6-49f7-94f7-79afe40d767d|Recon.Scanning|\n|224.90.249.168 |null   |142.252.236.56 |81     |2019-03-11T00:03:55+02:00|415142a9-df9f-4da6-9c81-b25f796b01e5|Recon.Scanning|\n|128.121.126.203|null   |142.252.62.31  |null   |2019-03-11T00:08:59+02:00|3e410722-0f88-4db2-b2f2-2b2afd47edc3|Recon.Scanning|\n|124.55.119.174 |null   |142.252.186.17 |null   |2019-03-11T00:09:06+02:00|ee0d56b9-f81e-43a2-99cf-f04fce5cf218|Recon.Scanning|\n|67.218.192.13  |null   |142.252.215.191|445    |2019-03-11T00:08:55+02:00|7e4bcdde-b9fb-4788-a7d9-a510c680569c|Recon.Scanning|\n|185.129.192.44 |null   |142.252.239.187|992    |2019-03-11T00:08:55+02:00|8375b979-b7bc-4442-9e9f-1648799b352c|Recon.Scanning|\n|179.182.202.148|null   |142.252.2.201  |22     |2019-03-11T00:08:55+02:00|633147f7-6630-4a52-8d0b-0593d06a6a21|Recon.Scanning|\n|224.90.249.168 |null   |142.252.163.198|81     |2019-03-11T00:08:55+02:00|14ce6fbd-a4cd-4157-9c86-806cc656104d|Recon.Scanning|\n|185.183.222.4  |null   |142.252.96.53  |22     |2019-03-11T00:08:56+02:00|0b7799c3-4599-4cad-a87a-86c4ca5bf680|Recon.Scanning|\n|185.192.59.243 |null   |142.252.158.39 |5900   |2019-03-11T00:08:55+02:00|e4049588-283a-44e5-8aaa-0e3d32e09de1|Recon.Scanning|\n|226.153.85.129 |null   |142.252.60.189 |21     |2019-03-11T00:08:56+02:00|9f337504-2d7b-4307-a8a2-94b6effbf315|Recon.Scanning|\n|124.55.119.175 |null   |142.252.26.139 |11     |2019-03-11T00:08:56+02:00|2d94bcd3-f7e5-47fb-b8cf-1ec0fc7e813a|Recon.Scanning|\n|49.135.226.161 |null   |142.252.84.38  |443    |2019-03-11T00:08:55+02:00|bbcc1155-b495-40da-aa00-a49eb7c56835|Recon.Scanning|\n|1.33.226.5     |null   |142.252.220.118|23     |2019-03-11T00:08:06+02:00|2ea464af-8faa-4f5c-b2ba-f2392a06b7ba|Recon.Scanning|\n|124.55.119.174 |null   |142.252.177.44 |null   |2019-03-11T00:13:57+02:00|a412303b-29cb-4af8-9bae-ce71cddba672|Recon.Scanning|\n|128.121.126.203|null   |142.252.62.31  |null   |2019-03-11T00:14:05+02:00|35dee11d-f9a4-484b-bc2b-6002f14e289a|Recon.Scanning|\n|49.135.226.161 |null   |142.252.93.170 |443    |2019-03-11T00:13:55+02:00|43954cf6-40ab-4557-9516-6d855ffb928d|Recon.Scanning|\n|1.33.226.5     |null   |142.252.191.130|23     |2019-03-11T00:12:56+02:00|b35db8ca-009a-4f8e-88d5-54b050e138d2|Recon.Scanning|\n|185.192.59.136 |null   |142.252.144.174|22     |2019-03-11T00:13:55+02:00|74459573-2998-4209-b9f8-2e123be7608e|Recon.Scanning|\n|185.183.222.4  |null   |142.252.201.132|22     |2019-03-11T00:13:55+02:00|7fe8b1d9-2210-48ce-8a91-c0c5dcfbd388|Recon.Scanning|\n+---------------+-------+---------------+-------+-------------------------+------------------------------------+--------------+\nonly showing top 50 rows\n\n\u001b[1m\u001b[34mdf2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [SrcIPv4: string, SrcPort: bigint ... 5 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972592_914984821",
+      "id": "paragraph_1617270796210_651844335",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5313"
+    },
+    {
+      "text": "df2.write.parquet(\"/Users/kienhd1/datasets/20210504\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972592_1302546323",
+      "id": "paragraph_1617336400936_1184814877",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5314"
+    },
+    {
+      "text": "val df2 = spark.read.parquet(\"/Users/kienhd1/datasets/20210504\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-24T12:11:34+0700",
+      "progress": 100,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdf2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [SrcIPv4: string, SrcPort: bigint ... 5 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=7",
+              "$$hashKey": "object:6752"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972592_1600264570",
+      "id": "paragraph_1617596316570_899653706",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "dateStarted": "2021-04-24T12:11:34+0700",
+      "dateFinished": "2021-04-24T12:11:34+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5315"
+    },
+    {
+      "text": "df2.printSchema()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-22T14:33:00+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "root\n |-- SrcIPv4: string (nullable = true)\n |-- SrcPort: long (nullable = true)\n |-- DstIPv4: string (nullable = true)\n |-- DstPort: long (nullable = true)\n |-- EventTime: string (nullable = true)\n |-- ID: string (nullable = true)\n |-- Category: string (nullable = true)\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1619076767506_1722197233",
+      "id": "paragraph_1619076767506_1722197233",
+      "dateCreated": "2021-04-22T14:32:47+0700",
+      "dateStarted": "2021-04-22T14:33:00+0700",
+      "dateFinished": "2021-04-22T14:33:00+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5316"
+    },
+    {
+      "text": "val event_perday = df2.withColumn(\"date\",to_date($\"EventTime\")).groupBy(\"date\").count\nevent_perday.show(50,false)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-24T11:32:22+0700",
+      "progress": 85,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+------+\n|date      |count |\n+----------+------+\n|2019-03-14|765014|\n|2019-03-17|705252|\n|2019-03-11|719989|\n|2019-03-12|714544|\n|2019-03-04|2     |\n|2019-03-09|5     |\n|2019-03-13|694270|\n|2019-03-10|7423  |\n|2019-03-16|732575|\n|2019-03-05|8     |\n|2019-03-15|776164|\n+----------+------+\n\n\u001b[1m\u001b[34mevent_perday\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [date: date, count: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=1",
+              "$$hashKey": "object:5811"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=2",
+              "$$hashKey": "object:5812"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=3",
+              "$$hashKey": "object:5813"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=4",
+              "$$hashKey": "object:5814"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=5",
+              "$$hashKey": "object:5815"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972592_1348115038",
+      "id": "paragraph_1617336542412_318296216",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "dateStarted": "2021-04-24T11:32:22+0700",
+      "dateFinished": "2021-04-24T11:32:26+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5317"
+    },
+    {
+      "text": "z.show(event_perday.orderBy($\"date\".asc))",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "date": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default",
+                  "stacked": false
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "date",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "date\tcount\n2019-03-04\t2\n2019-03-05\t8\n2019-03-09\t5\n2019-03-10\t7423\n2019-03-11\t719989\n2019-03-12\t714544\n2019-03-13\t694270\n2019-03-14\t765014\n2019-03-15\t776164\n2019-03-16\t732575\n2019-03-17\t705252\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_2082224778",
+      "id": "paragraph_1617336924349_320769500",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5318"
+    },
+    {
+      "text": "val event_per_cate= df2.groupBy(\"Category\").count.withColumn(\"log-count\",log(\"count\"))\nz.show(event_per_cate)\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-24T12:17:18+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": true,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "Category": "string",
+                      "count": "string"
+                    },
+                    "updated": true
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "Category",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "Category\tcount\tlog-count\nAvailability.DDoS\t7924\t8.977651407818442\nRecon.Scanning\t5100941\t15.444935590478636\nAttempt.Exploit\t36\t3.58351893845611\nAttempt.Login\t6345\t8.755422380148488\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mevent_per_cate\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [Category: string, count: bigint ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=8",
+              "$$hashKey": "object:7215"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=9",
+              "$$hashKey": "object:7216"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=10",
+              "$$hashKey": "object:7217"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=11",
+              "$$hashKey": "object:7218"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=12",
+              "$$hashKey": "object:7219"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_2140389011",
+      "id": "paragraph_1617337364533_1491431881",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "dateStarted": "2021-04-24T12:11:46+0700",
+      "dateFinished": "2021-04-24T12:11:47+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5319"
+    },
+    {
+      "text": "val most_port = df2.filter($\"Category\"===\"Recon.Scanning\").groupBy(\"DstPort\").count.filter($\"DstPort\".isNotNull).orderBy($\"count\".desc).limit(10)\nmost_port.show(10,false)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+-------+\n|DstPort|count  |\n+-------+-------+\n|445    |1897493|\n|23     |1480124|\n|80     |229192 |\n|8080   |192862 |\n|22     |156995 |\n|5555   |136103 |\n|2323   |127690 |\n|81     |90406  |\n|9527   |53032  |\n|5431   |39463  |\n+-------+-------+\n\n\u001b[1m\u001b[34mmost_port\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [DstPort: bigint, count: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_165786934",
+      "id": "paragraph_1617338736487_630114817",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5320"
+    },
+    {
+      "text": "z.show(most_port)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "DstPort": "string",
+                      "count": "string"
+                    },
+                    "updated": true
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "lineChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "DstPort",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "DstPort\tcount\n445\t1897493\n23\t1480124\n80\t229192\n8080\t192862\n22\t156995\n5555\t136103\n2323\t127690\n81\t90406\n9527\t53032\n5431\t39463\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_2109823845",
+      "id": "paragraph_1617436163567_81231619",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5321"
+    },
+    {
+      "text": "val count_ip = df2.groupBy(\"SrcIPv4\").count",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mcount_ip\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [SrcIPv4: string, count: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_1662364014",
+      "id": "paragraph_1617436905926_307046192",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5322"
+    },
+    {
+      "text": "count_ip.count",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres4\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 656673\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_1567969132",
+      "id": "paragraph_1617588625427_787311915",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5323"
+    },
+    {
+      "text": "z.show(count_ip.orderBy($\"count\".desc).limit(7))",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T16:56:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "multiBarChart",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "SrcIPv4": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "SrcIPv4",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "SrcIPv4\tcount\n179.227.104.146\t2242\n231.144.92.239\t2192\n185.58.160.58\t1576\n38.56.25.226\t1490\n252.130.9.77\t1244\n185.127.90.92\t1218\n224.177.31.162\t1155\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_619910651",
+      "id": "paragraph_1617441023789_627686108",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5324"
+    },
+    {
+      "text": "%pyspark\nfrom matplotlib import pyplot as plt\nimport numpy as np\nimport pandas as pd\nfrom pyspark.sql import *\ndf2 = spark.read.parquet(\"/Users/kienhd1/datasets/20210504\")\ncount_ip = df2.groupBy(\"SrcIPv4\").count().toPandas()\ncount_ip.boxplot()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-24T11:34:16+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "org.apache.zeppelin.interpreter.InterpreterException: org.apache.zeppelin.interpreter.InterpreterException: Fail to open PythonInterpreter\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.open(LazyOpenInterpreter.java:76)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:836)\n\tat org.apache.zeppelin.interpreter.remote.RemoteInterpreterServer$InterpretJob.jobRun(RemoteInterpreterServer.java:744)\n\tat org.apache.zeppelin.scheduler.Job.run(Job.java:172)\n\tat org.apache.zeppelin.scheduler.AbstractScheduler.runJob(AbstractScheduler.java:132)\n\tat org.apache.zeppelin.scheduler.FIFOScheduler.lambda$runJobInScheduler$0(FIFOScheduler.java:42)\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\n\tat java.lang.Thread.run(Thread.java:748)\nCaused by: org.apache.zeppelin.interpreter.InterpreterException: Fail to open PythonInterpreter\n\tat org.apache.zeppelin.python.PythonInterpreter.open(PythonInterpreter.java:115)\n\tat org.apache.zeppelin.spark.PySparkInterpreter.open(PySparkInterpreter.java:94)\n\tat org.apache.zeppelin.interpreter.LazyOpenInterpreter.open(LazyOpenInterpreter.java:70)\n\t... 8 more\nCaused by: java.io.IOException: Fail to launch python process.\nTraceback (most recent call last):\n  File \"/tmp/1617615840617-0/zeppelin_python.py\", line 99, in <module>\n    if intp.getZeppelinContext():\n  File \"/opt/zeppelin-0.9.0-bin-all/interpreter/spark/pyspark/py4j-0.10.7-src.zip/py4j/java_gateway.py\", line 1256, in __call__\n  File \"/opt/zeppelin-0.9.0-bin-all/interpreter/spark/pyspark/py4j-0.10.7-src.zip/py4j/protocol.py\", line 326, in get_return_value\npy4j.protocol.Py4JJavaError: An error occurred while calling t.getZeppelinContext.\n: java.lang.NullPointerException\n\tat org.apache.zeppelin.spark.SparkInterpreter.getZeppelinContext(SparkInterpreter.java:212)\n\tat org.apache.zeppelin.spark.PySparkInterpreter.getZeppelinContext(PySparkInterpreter.java:193)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\n\tat java.lang.reflect.Method.invoke(Method.java:498)\n\tat py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)\n\tat py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:357)\n\tat py4j.Gateway.invoke(Gateway.java:282)\n\tat py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)\n\tat py4j.commands.CallCommand.execute(CallCommand.java:79)\n\tat py4j.GatewayConnection.run(GatewayConnection.java:238)\n\tat java.lang.Thread.run(Thread.java:748)\n\n\n\tat org.apache.zeppelin.python.PythonInterpreter.createGatewayServerAndStartScript(PythonInterpreter.java:160)\n\tat org.apache.zeppelin.python.PythonInterpreter.open(PythonInterpreter.java:112)\n\t... 10 more\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_520223845",
+      "id": "paragraph_1617587773571_1358489230",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5325"
+    },
+    {
+      "text": "from pyspark import SparkContext, SparkFiles\nfrom pyspark.sql import SparkSession\nfrom pyspark.sql.types import *\nfrom pyspark.sql.functions import DataFrame, udf, col\nfrom geoip2 import database\nfrom geoip2.errors import AddressNotFoundError\nfrom geoip2.models import Country\n\ndef get_country(ip):\n    geo = database.Reader(SparkFiles.get(\"/Users/kienhd1/Downloads/GeoLite2-Country_20210330/GeoLite2-Country.mmdb\"))\n    try:\n        result = geo.country(ip)\n        return result.country.name\n    except AddressNotFoundError:\n        return None\n\nsc.addFile(\"/Users/kienhd1/Downloads/GeoLite2-Country_20210330/GeoLite2-Country.mmdb\")\nget_country_udf = udf(lambda z: get_country(z))\nspark.udf.register(\"get_country_udf\", get_country_udf)\ndf_with_country = spark.read.parquet(\"/Users/kienhd1/datasets/20210504\").withColumn(\"country\",get_country(col(\"SrcIPv4\")))\ndf_with_country.write.parquet(\"/Users/kienhd1/datasets/20210604\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-24T11:38:03+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_1182887937",
+      "id": "paragraph_1617679179593_1953526131",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "status": "READY",
+      "$$hashKey": "object:5326"
+    },
+    {
+      "text": "%pyspark\nimport pandas as pd\ndf3 = spark.read.parquet(\"/Users/kienhd1/datasets/20210604\")\ndf3.groupBy(\"country\").count().toPandas()\ndf3.boxplot()",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-24T11:40:21+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/python",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "DataFrame[country: string, count: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=6",
+              "$$hashKey": "object:6057"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_948893178",
+      "id": "paragraph_1617681581858_31297914",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "dateStarted": "2021-04-24T11:38:32+0700",
+      "dateFinished": "2021-04-24T11:38:40+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5327"
+    },
+    {
+      "text": "val port_login = df3.filter($\"Category\" === \"Attempt.Login\").groupBy(\"DstPort\").count\nport_login.orderBy($\"count\".desc).show(10,false)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T17:01:45+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+-----+\n|DstPort|count|\n+-------+-----+\n|5060   |4971 |\n|22     |514  |\n|23     |489  |\n|3389   |369  |\n|null   |1    |\n|6250   |1    |\n+-------+-----+\n\n\u001b[1m\u001b[34mport_login\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [DstPort: bigint, count: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=12",
+              "$$hashKey": "object:6074"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617702972593_21252043",
+      "id": "paragraph_1617681668438_1929695723",
+      "dateCreated": "2021-04-06T16:56:12+0700",
+      "dateStarted": "2021-04-06T17:01:45+0700",
+      "dateFinished": "2021-04-06T17:01:46+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5328"
+    },
+    {
+      "text": "z.show(port_login.orderBy($\"count\".desc))",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-24T11:41:30+0700",
+      "progress": 2,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "pieChart",
+              "height": 300,
+              "optionOpen": true,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "DstPort": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                },
+                "stackedAreaChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "DstPort",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "count",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "DstPort\tcount\n5060\t4971\n22\t514\n23\t489\n3389\t369\n6250\t1\nnull\t1\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=13",
+              "$$hashKey": "object:6110"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617703122133_1973193053",
+      "id": "paragraph_1617703122133_1973193053",
+      "dateCreated": "2021-04-06T16:58:42+0700",
+      "dateStarted": "2021-04-06T17:05:52+0700",
+      "dateFinished": "2021-04-06T17:05:53+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5329"
+    },
+    {
+      "text": "val port_exploit = df3.filter($\"Category\" === \"Attempt.Exploit\").groupBy(\"DstPort\").count\nz.show(port_exploit.orderBy($\"count\".desc))",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-06T17:38:30+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "DstPort": "string",
+                      "count": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "DstPort\tcount\nnull\t36\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mport_exploit\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [DstPort: bigint, count: bigint]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=14",
+              "$$hashKey": "object:6151"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617703552653_1095956365",
+      "id": "paragraph_1617703552653_1095956365",
+      "dateCreated": "2021-04-06T17:05:52+0700",
+      "dateStarted": "2021-04-06T17:38:28+0700",
+      "dateFinished": "2021-04-06T17:38:29+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5330"
+    },
+    {
+      "text": "\nval df2 = spark.read.parquet(\"/Users/kienhd1/datasets/20210604\")\ndf2.show(10,false)\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-09T09:51:13+0700",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+--------------+-------+--------------+-------+--------------------+------------------------------------+--------------+--------------------+\n|SrcIPv4       |SrcPort|DstIPv4       |DstPort|EventTime           |ID                                  |Category      |country             |\n+--------------+-------+--------------+-------+--------------------+------------------------------------+--------------+--------------------+\n|185.192.58.77 |57651  |224.177.9.212 |23096  |2019-03-13T09:32:27Z|6086b95b-5f83-4404-b198-80e0779b42cc|Recon.Scanning|China               |\n|86.99.210.68  |31788  |224.177.9.234 |11211  |2019-03-13T09:32:26Z|41b883d9-d4ba-4c7d-b253-db01ae4cfd3a|Recon.Scanning|United Arab Emirates|\n|11.230.237.52 |55850  |224.177.9.76  |445    |2019-03-13T09:32:22Z|fed9bba0-ab02-4c4a-ac45-2b10124a756f|Recon.Scanning|United States       |\n|122.25.31.230 |51296  |224.177.11.245|445    |2019-03-13T09:32:22Z|9c42f175-5edc-4013-99f1-3af1a1aeadb4|Recon.Scanning|Japan               |\n|238.146.25.138|57985  |224.177.11.158|445    |2019-03-13T09:32:26Z|dafaaa16-c849-4eac-845c-01694f68e6ee|Recon.Scanning|null                |\n|148.77.23.125 |54312  |224.177.10.120|445    |2019-03-13T09:32:24Z|23125359-7884-4601-a471-e7ec04f5111f|Recon.Scanning|United States       |\n|123.179.11.197|17618  |224.177.10.67 |445    |2019-03-13T09:32:27Z|69e787a4-484b-4550-a950-c66fc3f9216c|Recon.Scanning|China               |\n|245.2.230.154 |61694  |80.159.0.120  |445    |2019-03-13T09:32:25Z|93d26690-441a-4034-8297-203d96246298|Recon.Scanning|null                |\n|158.87.133.29 |57295  |224.177.9.153 |445    |2019-03-13T09:32:25Z|ac462da8-79ad-456d-9723-82ed1854c2c4|Recon.Scanning|United States       |\n|255.28.10.216 |61652  |224.177.9.171 |445    |2019-03-13T09:32:25Z|c25eaa00-cb1a-41e3-be97-063e1a889723|Recon.Scanning|null                |\n+--------------+-------+--------------+-------+--------------------+------------------------------------+--------------+--------------------+\nonly showing top 10 rows\n\n\u001b[1m\u001b[34mdf2\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [SrcIPv4: string, SrcPort: bigint ... 6 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=1",
+              "$$hashKey": "object:6168"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=2",
+              "$$hashKey": "object:6169"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617707329885_1313557602",
+      "id": "paragraph_1617707329885_1313557602",
+      "dateCreated": "2021-04-06T18:08:49+0700",
+      "dateStarted": "2021-04-09T09:51:13+0700",
+      "dateFinished": "2021-04-09T09:51:14+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5331"
+    },
+    {
+      "text": "val df3 = df2.filter($\"Category\" === \"Recon.Scanning\").groupBy(\"SrcIPv4\",\"DstIPv4\",\"DstPort\").count.groupBy(\"SrcIPv4\",\"DstIPv4\").agg(collect_list(\"DstPort\").as(\"items\")).filter(size($\"items\") > 1)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-09T10:20:11+0700",
+      "progress": 28,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mdf3\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.Dataset[org.apache.spark.sql.Row]\u001b[0m = [SrcIPv4: string, DstIPv4: string ... 1 more field]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617936604532_2093947923",
+      "id": "paragraph_1617936604532_2093947923",
+      "dateCreated": "2021-04-09T09:50:04+0700",
+      "dateStarted": "2021-04-09T10:20:11+0700",
+      "dateFinished": "2021-04-09T10:20:11+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5332"
+    },
+    {
+      "text": "df3.count",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-09T10:20:18+0700",
+      "progress": 94,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34mres4\u001b[0m: \u001b[1m\u001b[32mLong\u001b[0m = 49308\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=5",
+              "$$hashKey": "object:6202"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617938130689_997573814",
+      "id": "paragraph_1617938130689_997573814",
+      "dateCreated": "2021-04-09T10:15:30+0700",
+      "dateStarted": "2021-04-09T10:20:18+0700",
+      "dateFinished": "2021-04-09T10:20:31+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5333"
+    },
+    {
+      "text": "df3.show(10,false)",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-09T10:20:42+0700",
+      "progress": 99,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+---------------+--------------+------------------------------+\n|SrcIPv4        |DstIPv4       |items                         |\n+---------------+--------------+------------------------------+\n|1.66.30.117    |224.177.9.200 |[81, 8080]                    |\n|103.11.117.143 |224.177.8.246 |[111, 9200]                   |\n|103.24.173.130 |224.177.11.6  |[22, 21]                      |\n|103.24.173.135 |224.177.11.8  |[8000, 22, 143]               |\n|103.24.174.4   |224.177.9.141 |[4567, 7547]                  |\n|104.136.220.251|224.177.9.246 |[52222, 22, 12222, 2222, 1987]|\n|108.75.139.10  |224.177.8.243 |[82, 2222]                    |\n|110.241.125.158|224.177.8.199 |[9527, 23]                    |\n|12.45.211.191  |224.177.10.155|[2323, 23]                    |\n|122.127.175.48 |224.177.9.33  |[1010, 10001, 6668]           |\n+---------------+--------------+------------------------------+\nonly showing top 10 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=6",
+              "$$hashKey": "object:6219"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617938418568_1491207836",
+      "id": "paragraph_1617938418568_1491207836",
+      "dateCreated": "2021-04-09T10:20:18+0700",
+      "dateStarted": "2021-04-09T10:20:42+0700",
+      "dateFinished": "2021-04-09T10:20:50+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5334"
+    },
+    {
+      "text": "import org.apache.spark.ml.fpm.FPGrowth\nval fpgrowth = new FPGrowth().setItemsCol(\"items\").setMinSupport(0.01).setMinConfidence(0.65)\nval model = fpgrowth.fit(df3)\nmodel.associationRules.show()\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-04-09T10:44:12+0700",
+      "progress": 0,
+      "config": {
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "colWidth": 12,
+        "editorMode": "ace/mode/scala",
+        "fontSize": 9,
+        "results": {},
+        "enabled": true
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+----------+----------+------------------+------------------+\n|antecedent|consequent|        confidence|              lift|\n+----------+----------+------------------+------------------+\n|    [2323]|      [23]| 0.896660005709392| 3.154206432297831|\n|    [9527]|    [5555]|0.7166454891994918|20.568309535185413|\n|      [23]|    [2323]|0.6722551187843333| 3.154206432297831|\n+----------+----------+------------------+------------------+\n\nimport org.apache.spark.ml.fpm.FPGrowth\n\u001b[1m\u001b[34mfpgrowth\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.ml.fpm.FPGrowth\u001b[0m = fpgrowth_53f6ccbc50ca\n\u001b[1m\u001b[34mmodel\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.ml.fpm.FPGrowthModel\u001b[0m = fpgrowth_53f6ccbc50ca\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=23",
+              "$$hashKey": "object:6236"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=24",
+              "$$hashKey": "object:6237"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=25",
+              "$$hashKey": "object:6238"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=26",
+              "$$hashKey": "object:6239"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=27",
+              "$$hashKey": "object:6240"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=28",
+              "$$hashKey": "object:6241"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=29",
+              "$$hashKey": "object:6242"
+            },
+            {
+              "jobUrl": "http://10.10.17.172:4040/jobs/job?id=30",
+              "$$hashKey": "object:6243"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617938442186_271271654",
+      "id": "paragraph_1617938442186_271271654",
+      "dateCreated": "2021-04-09T10:20:42+0700",
+      "dateStarted": "2021-04-09T10:44:12+0700",
+      "dateFinished": "2021-04-09T10:44:30+0700",
+      "status": "FINISHED",
+      "$$hashKey": "object:5335"
+    },
+    {
+      "user": "anonymous",
+      "progress": 0,
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1617939590732_377339138",
+      "id": "paragraph_1617939590732_377339138",
+      "dateCreated": "2021-04-09T10:39:50+0700",
+      "status": "READY",
+      "$$hashKey": "object:5336"
+    }
+  ],
+  "name": "CSDLNC",
+  "id": "2G1MYFZD7",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/CSDLNC"
+}
